@@ -11,6 +11,7 @@
 		077CF2BF2A1905B300DFB8F8 /* BucketListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077CF2BE2A1905B300DFB8F8 /* BucketListView.swift */; };
 		077CF2C12A1905B400DFB8F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077CF2C02A1905B400DFB8F8 /* Assets.xcassets */; };
 		077CF2C42A1905B400DFB8F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077CF2C32A1905B400DFB8F8 /* Preview Assets.xcassets */; };
+		07D7EB482A1B8B9A00DFECC5 /* BucketItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7EB472A1B8B9A00DFECC5 /* BucketItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		077CF2BE2A1905B300DFB8F8 /* BucketListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListView.swift; sourceTree = "<group>"; };
 		077CF2C02A1905B400DFB8F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		077CF2C32A1905B400DFB8F8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		07D7EB472A1B8B9A00DFECC5 /* BucketItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 				077CF2BE2A1905B300DFB8F8 /* BucketListView.swift */,
 				077CF2C02A1905B400DFB8F8 /* Assets.xcassets */,
 				077CF2C22A1905B400DFB8F8 /* Preview Content */,
+				07D7EB472A1B8B9A00DFECC5 /* BucketItem.swift */,
 			);
 			path = BucketList;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07D7EB482A1B8B9A00DFECC5 /* BucketItem.swift in Sources */,
 				077CF2BF2A1905B300DFB8F8 /* BucketListView.swift in Sources */,
 				077CF2BD2A1905B300DFB8F8 /* BucketListApp.swift in Sources */,
 			);
