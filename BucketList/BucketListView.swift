@@ -26,27 +26,33 @@ struct BucketListView: View {
                     .disabled(newItem.isEmpty)
                 }
                 .padding()
-                
-                List {
-                    ForEach($dataStore.bucketList) { $item in
-                        NavigationLink(value: item) {
-                            TextField(item.name, text: $item.name, axis: .vertical)
-                                .textFieldStyle(.roundedBorder)
-                                .font(.title3)
-                                .foregroundColor(item.completedDate == .distantPast ? .primary : .red)
+                if !dataStore.bucketList.isEmpty {
+                    List {
+                        ForEach($dataStore.bucketList) { $item in
+                            NavigationLink(value: item) {
+                                TextField(item.name, text: $item.name, axis: .vertical)
+                                    .textFieldStyle(.roundedBorder)
+                                    .font(.title3)
+                                    .foregroundColor(item.completedDate == .distantPast ? .primary : .red)
+                            }
+                            .onChange(of: item) { _ in
+                                dataStore.saveList()
+                            }
+                            .listRowSeparator(.hidden)
                         }
-                        .onChange(of: item) { _ in
-                            dataStore.saveList()
-                        }
-                        .listRowSeparator(.hidden)
+                        .onDelete(perform: dataStore.delete)
                     }
-                    .onDelete(perform: dataStore.delete)
+                    .listStyle(.plain)
+                } else {
+                    Text("Add your first BucketList item.")
+                    Image("bucketList")
+                    Spacer()
                 }
-                .listStyle(.plain)
-                .navigationTitle("Bucket List")
-                .navigationDestination(for: BucketItem.self) { item in
-                    DetailView(bucketItem: item)
-                }
+                
+            }
+            .navigationTitle("Bucket List")
+            .navigationDestination(for: BucketItem.self) { item in
+                DetailView(bucketItem: item)
             }
         }
     }
