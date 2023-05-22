@@ -18,8 +18,7 @@ struct BucketListView: View {
                     TextField("New Bucket Item", text: $newItem)
                         .textFieldStyle(.roundedBorder)
                     Button {
-                        let newBucketItem  = BucketItem(name: newItem)
-                        dataStore.bucketList.append(newBucketItem)
+                        dataStore.create(newItem)
                         newItem = ""
                     } label: {
                         Image(systemName: "plus.circle.fill")
@@ -36,11 +35,12 @@ struct BucketListView: View {
                                 .font(.title3)
                                 .foregroundColor(item.completedDate == .distantPast ? .primary : .red)
                         }
+                        .onChange(of: item) { _ in
+                            dataStore.saveList()
+                        }
                         .listRowSeparator(.hidden)
                     }
-                    .onDelete { indexSet in
-                        dataStore.bucketList.remove(atOffsets: indexSet)
-                    }
+                    .onDelete(perform: dataStore.delete)
                 }
                 .listStyle(.plain)
                 .navigationTitle("Bucket List")

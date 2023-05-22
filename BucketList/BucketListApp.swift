@@ -14,6 +14,9 @@ struct BucketListApp: App {
         WindowGroup {
             BucketListView()
                 .environmentObject(dataStore)
+                .onAppear {
+                    print(URL.documentsDirectory.path)
+                }
         }
     }
 }
