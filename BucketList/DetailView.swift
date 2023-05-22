@@ -8,16 +8,14 @@
 import SwiftUI
 
 struct DetailView: View {
+    @EnvironmentObject var dataStore: DataStore
     let bucketItem: BucketItem
-    @State private var name = ""
     @State private var note = ""
     @State private var completedDate = Date.distantPast
-    @Binding var bucketList: [BucketItem]
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         Form {
-            TextField("Name", text: $name)
             TextField("Bucket Note", text: $note, axis: .vertical)
             if completedDate != Date.distantPast {
                 DatePicker("Completed on", selection: $completedDate, displayedComponents: .date)
@@ -32,18 +30,13 @@ struct DetailView: View {
             .buttonStyle(.borderedProminent)
         }
         .onAppear {
-            name = bucketItem.name
             note = bucketItem.note
             completedDate = bucketItem.completedDate
         }
         .toolbar {
             ToolbarItem {
                 Button("Update") {
-                    if let index = bucketList.firstIndex(where: {$0.id == bucketItem.id}) {
-                        bucketList[index].name = name
-                        bucketList[index].note = note
-                        bucketList[index].completedDate = completedDate
-                    }
+                    dataStore.update(bucketItem: bucketItem, note: note, completedDate: completedDate)
                     dismiss()
                 }
                 .buttonStyle(.borderedProminent)
@@ -56,8 +49,8 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            DetailView(bucketItem: BucketItem.samples[2], bucketList: .constant(BucketItem.samples)
-            )
+            DetailView(bucketItem: BucketItem.samples[1])
+                .environmentObject(DataStore())
         }
     }
 }

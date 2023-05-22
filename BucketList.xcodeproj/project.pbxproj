@@ -13,6 +13,7 @@
 		077CF2C42A1905B400DFB8F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077CF2C32A1905B400DFB8F8 /* Preview Assets.xcassets */; };
 		07D7EB482A1B8B9A00DFECC5 /* BucketItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7EB472A1B8B9A00DFECC5 /* BucketItem.swift */; };
 		07D7EB4A2A1B8E2900DFECC5 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7EB492A1B8E2900DFECC5 /* DetailView.swift */; };
+		07D7EB4C2A1B949A00DFECC5 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7EB4B2A1B949A00DFECC5 /* DataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		077CF2C32A1905B400DFB8F8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		07D7EB472A1B8B9A00DFECC5 /* BucketItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketItem.swift; sourceTree = "<group>"; };
 		07D7EB492A1B8E2900DFECC5 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		07D7EB4B2A1B949A00DFECC5 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				077CF2BC2A1905B300DFB8F8 /* BucketListApp.swift */,
 				077CF2BE2A1905B300DFB8F8 /* BucketListView.swift */,
+				07D7EB4B2A1B949A00DFECC5 /* DataStore.swift */,
 				07D7EB492A1B8E2900DFECC5 /* DetailView.swift */,
 				07D7EB472A1B8B9A00DFECC5 /* BucketItem.swift */,
 				077CF2C02A1905B400DFB8F8 /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 				07D7EB482A1B8B9A00DFECC5 /* BucketItem.swift in Sources */,
 				07D7EB4A2A1B8E2900DFECC5 /* DetailView.swift in Sources */,
 				077CF2BF2A1905B300DFB8F8 /* BucketListView.swift in Sources */,
+				07D7EB4C2A1B949A00DFECC5 /* DataStore.swift in Sources */,
 				077CF2BD2A1905B300DFB8F8 /* BucketListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
