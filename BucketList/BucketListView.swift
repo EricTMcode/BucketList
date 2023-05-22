@@ -34,6 +34,7 @@ struct BucketListView: View {
                             TextField(item.name, text: $item.name, axis: .vertical)
                                 .textFieldStyle(.roundedBorder)
                                 .font(.title3)
+                                .foregroundColor(item.completedDate == .distantPast ? .primary : .red)
                         }
                         .listRowSeparator(.hidden)
                     }
@@ -44,8 +45,7 @@ struct BucketListView: View {
                 .listStyle(.plain)
                 .navigationTitle("Bucket List")
                 .navigationDestination(for: BucketItem.self) { item in
-                    Text(item.name)
-                        .font(.title)
+                    DetailView(bucketItem: item, bucketList: $bucketList)
                 }
             }
         }
