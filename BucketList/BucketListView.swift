@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BucketListView: View {
-    @State private var bucketList = ["Climb Everest", "Visit Hawai", "Get Married"]
+    @State private var bucketList = BucketItem.samples
     @State private var newItem = ""
     
     var body: some View {
@@ -18,7 +18,8 @@ struct BucketListView: View {
                     TextField("New Bucket Item", text: $newItem)
                         .textFieldStyle(.roundedBorder)
                     Button {
-                        bucketList.append(newItem)
+                        let newBucketItem  = BucketItem(name: newItem)
+                        bucketList.append(newBucketItem)
                         newItem = ""
                     } label: {
                         Image(systemName: "plus.circle.fill")
@@ -28,10 +29,13 @@ struct BucketListView: View {
                 .padding()
                 
                 List {
-                    ForEach(bucketList, id: \.self) { item in
+                    ForEach($bucketList) { $item in
                         NavigationLink(value: item) {
-                            Text(item)
+                            TextField(item.name, text: $item.name, axis: .vertical)
+                                .textFieldStyle(.roundedBorder)
+                                .font(.title3)
                         }
+                        .listRowSeparator(.hidden)
                     }
                     .onDelete { indexSet in
                         bucketList.remove(atOffsets: indexSet)
@@ -39,8 +43,8 @@ struct BucketListView: View {
                 }
                 .listStyle(.plain)
                 .navigationTitle("Bucket List")
-                .navigationDestination(for: String.self) { item in
-                    Text(item)
+                .navigationDestination(for: BucketItem.self) { item in
+                    Text(item.name)
                         .font(.title)
                 }
             }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BucketItem: Codable, Identifiable {
+struct BucketItem: Codable, Identifiable, Hashable {
     var id = UUID()
     var name: String
     var note = ""
